@@ -147,9 +147,27 @@ function App(): ReactElement {
       </section>
 
       <div className="component">
-        <LazyImage className="component__image" width="200" height="200" alt="LazyImage" src="https://images.unsplash.com/photo-1576173992415-e0ca34dc0a8a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1931&q=80" />
+        <LazyImage
+          attributeNameSrc={'data-image-src'}
+          attributeNameSrcset={'data-image-srcset'}
+          threshold={0.25}
+          loadedClassName={'image--loaded'}
+          className="component__image"
+          width="300"
+          height="200"
+          alt="LazyImage"
+          srcset="https://images.unsplash.com/photo-1576173992415-e0ca34dc0a8a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1931&q=80, https://images.unsplash.com/photo-1576173992415-e0ca34dc0a8a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1931&q=80 2x"
+        />
 
-        <LazyImage className="component__image" width="300" height="300" alt="LazyImage" src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80" />
+        <LazyImage
+          loadedClassName={'image--loaded'}
+          threshold={0.5}
+          className="component__image"
+          width="500"
+          height="300"
+          alt="LazyImage"
+          src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80"
+        />
       </div>
 
     </section >

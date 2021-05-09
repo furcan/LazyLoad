@@ -254,11 +254,12 @@ p {
   }
 }
 
-.js-lazyimage,
+.component__image,
 .js-lazyload {
   opacity: 0.25;
   box-shadow: 0 0 2.5rem -0.75rem rgba($color-black, 0.25);
 
+  &.image--loaded,
   &.js-lazyloaded {
     opacity: 1;
     animation: animation_image_loaded 0.5s ease-in-out 0s 1;
