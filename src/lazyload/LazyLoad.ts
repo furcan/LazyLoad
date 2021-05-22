@@ -60,8 +60,34 @@ export class LazyLoad {
       }
       if (checkSrcset) {
         element.srcset = srcset;
+
         if (window.navigator.userAgent.toLocaleLowerCase('en').indexOf('.net4') > -1) {
-          element.src = (srcset.split(',')[0] || '').trim();
+          if (!String.prototype.startsWith) {
+            Object.defineProperty(String.prototype, 'startsWith', {
+              value: function (searchString: string, position?: number) {
+                const pos = (position && position > 0) ? position : 0;
+                return this.substring(pos, (pos + searchString.length)) === searchString;
+              },
+            });
+          }
+
+          if (srcset.trim().startsWith('data:image')) {
+            element.src = (
+              srcset.split(', data:image')[0] ||
+              srcset.split(',data:image')[0] ||
+              srcset.split(', http')[0] ||
+              srcset.split(',http')[0] ||
+              srcset.split(', /')[0] ||
+              srcset.split(',/')[0] ||
+              ''
+            ).trim();
+          } else {
+            element.src = ((
+              srcset.trim().split(', ')[0] ||
+              srcset.trim().split(',')[0] ||
+              ''
+            ).trim().split(' ')[0]).trim();
+          }
         }
       }
     } else if (element instanceof HTMLElement && checkSrc) {
