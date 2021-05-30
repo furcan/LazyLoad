@@ -1,8 +1,8 @@
 interface IOptions {
   selector?: string;
-  src?: string;
-  srcset?: string;
-  loadedClassName?: string;
+  attributeNameSrc?: string;
+  attributeNameSrcset?: string;
+  classNameLoaded?: string;
   root?: HTMLElement | null;
   rootMargin?: string;
   threshold?: number;
@@ -32,10 +32,10 @@ export class LazyLoad {
   private observer: IntersectionObserver | null;
 
   private defaults = {
-    src: 'data-src',
-    srcset: 'data-srcset',
     selector: '.js-lazyload',
-    loadedClassName: 'js-lazyloaded',
+    attributeNameSrc: 'data-src',
+    attributeNameSrcset: 'data-srcset',
+    classNameLoaded: 'js-lazyloaded',
     root: null,
     rootMargin: '0px',
     threshold: 0,
@@ -49,8 +49,8 @@ export class LazyLoad {
   };
 
   private loader = (element: TElement): void => {
-    const src = element.getAttribute(this.options.src || this.defaults.src) || '';
-    const srcset = element.getAttribute(this.options.srcset || this.defaults.srcset) || '';
+    const src = element.getAttribute(this.options.attributeNameSrc || this.defaults.attributeNameSrc) || '';
+    const srcset = element.getAttribute(this.options.attributeNameSrcset || this.defaults.attributeNameSrcset) || '';
     const checkSrc = src.length > 1;
     const checkSrcset = srcset.length > 1;
 
@@ -97,7 +97,7 @@ export class LazyLoad {
       element.style.backgroundPosition = 'center';
     }
     if (checkSrc || checkSrcset) {
-      element.classList.add(this.options.loadedClassName || this.defaults.loadedClassName);
+      element.classList.add(this.options.classNameLoaded || this.defaults.classNameLoaded);
     }
   };
 
@@ -123,7 +123,7 @@ export class LazyLoad {
     this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
       const _self = this.self;
       Array.prototype.forEach.call(entries, (entry: IntersectionObserverEntry) => {
-        const isLoaded = entry.target.classList.contains(_self.options.loadedClassName || _self.defaults.loadedClassName);
+        const isLoaded = entry.target.classList.contains(_self.options.classNameLoaded || _self.defaults.classNameLoaded);
         if (entry.isIntersecting && !isLoaded) {
           this.loader(entry.target);
           this.observer?.unobserve(entry.target);

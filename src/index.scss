@@ -254,6 +254,37 @@ p {
   }
 }
 
+.lazybackground {
+  padding: 3rem 1.5rem;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0.25;
+
+  &.background--loaded {
+    opacity: 1;
+    animation: animation_background_loaded 0.5s ease-in-out 0s 1;
+
+    @keyframes animation_background_loaded {
+      0% {
+        opacity: 0.25;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    text-shadow: 0 0 1rem rgba($color-black, 0.2), 0 0 2rem rgba($color-black, 0.4);
+    font-size: 2.2rem;
+  }
+}
+
 .component__image,
 .js-lazyload {
   opacity: 0.25;

@@ -3,6 +3,7 @@ import { Properties } from 'csstype';
 
 import { LazyLoad } from './lazyload/LazyLoad';
 import LazyImage from './lazyload/LazyImage';
+import LazyBackground from './lazyload/LazyBackground';
 
 const styleApp: Properties = {
   width: '100%',
@@ -39,7 +40,7 @@ function App(): ReactElement {
       setLazyState(
         new LazyLoad(
           {
-            loadedClassName: 'js-lazyloaded',
+            classNameLoaded: 'js-lazyloaded',
           },
         ),
       );
@@ -151,7 +152,7 @@ function App(): ReactElement {
           attributeNameSrc={'data-image-src'}
           attributeNameSrcset={'data-image-srcset'}
           threshold={0.25}
-          loadedClassName={'image--loaded'}
+          classNameLoaded={'image--loaded'}
           className="component__image"
           width="300"
           height="200"
@@ -160,7 +161,7 @@ function App(): ReactElement {
         />
 
         <LazyImage
-          loadedClassName={'image--loaded'}
+          classNameLoaded={'image--loaded'}
           threshold={0.5}
           className="component__image"
           width="500"
@@ -169,6 +170,10 @@ function App(): ReactElement {
           src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80"
         />
       </div>
+
+      <LazyBackground className="lazybackground" classNameLoaded="background--loaded" threshold={0.25} backgroundImageUrl="https://images.unsplash.com/photo-1552083375-1447ce886485?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+        <h2 className="lazybackground__title">LazyBackground</h2>
+      </LazyBackground>
 
     </section >
   );

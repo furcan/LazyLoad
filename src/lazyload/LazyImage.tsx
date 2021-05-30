@@ -1,4 +1,5 @@
 import React, { ReactElement, createElement, createRef, useEffect } from 'react';
+
 import { LazyLoad } from './LazyLoad';
 
 interface ILazyImage {
@@ -12,7 +13,7 @@ interface ILazyImage {
   srcset?: string;
   attributeNameSrc?: string;
   attributeNameSrcset?: string;
-  loadedClassName?: string;
+  classNameLoaded?: string;
   root?: HTMLElement | null;
   rootMargin?: string;
   threshold?: number;
@@ -30,7 +31,7 @@ const LazyImage = (
     srcset,
     attributeNameSrc,
     attributeNameSrcset,
-    loadedClassName,
+    classNameLoaded,
     root,
     rootMargin,
     threshold,
@@ -44,9 +45,9 @@ const LazyImage = (
     if (thisRef.current) {
       new LazyLoad(
         {
-          src: attributeNameSrc,
-          srcset: attributeNameSrcset,
-          loadedClassName,
+          attributeNameSrc,
+          attributeNameSrcset,
+          classNameLoaded,
           root,
           threshold,
           rootMargin,
@@ -58,7 +59,7 @@ const LazyImage = (
     thisRef,
     attributeNameSrc,
     attributeNameSrcset,
-    loadedClassName,
+    classNameLoaded,
     root,
     rootMargin,
     threshold,
