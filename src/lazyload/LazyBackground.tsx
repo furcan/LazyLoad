@@ -10,7 +10,7 @@ type TChildren = React.ReactNode
   | React.ReactChild
   | React.ReactChild[];
 
-interface Props {
+interface ILazyBackground {
   backgroundImageUrl: string;
   attributeNameSrc?: string;
   classNameLoaded?: string;
@@ -32,7 +32,7 @@ function LazyBackground({
   id,
   className,
   children,
-}: Props): React.ReactElement {
+}: ILazyBackground): React.ReactElement {
 
   const thisRef = createRef<HTMLDivElement>();
 
