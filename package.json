@@ -1,7 +1,7 @@
 {
-  "name": "reactlazyload",
-  "homepage": "https://furcan.github.io/ReactLazyLoad/",
-  "version": "0.0.1-beta.01",
+  "name": "lazyload",
+  "homepage": "https://furcan.github.io/LazyLoad/",
+  "version": "1.0.0",
   "private": true,
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.22.1",

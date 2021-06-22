@@ -149,10 +149,10 @@ function App(): ReactElement {
 
       <div className="component">
         <LazyImage
-          attributeNameSrc={'data-image-src'}
-          attributeNameSrcset={'data-image-srcset'}
+          attributeNameSrc="data-image-src"
+          attributeNameSrcset="data-image-srcset"
           threshold={0.25}
-          classNameLoaded={'image--loaded'}
+          classNameLoaded="image--loaded"
           className="component__image"
           width="300"
           height="200"
@@ -161,8 +161,8 @@ function App(): ReactElement {
         />
 
         <LazyImage
-          classNameLoaded={'image--loaded'}
           threshold={0.5}
+          classNameLoaded="image--loaded"
           className="component__image"
           width="500"
           height="300"
@@ -171,7 +171,12 @@ function App(): ReactElement {
         />
       </div>
 
-      <LazyBackground className="lazybackground" classNameLoaded="background--loaded" threshold={0.25} backgroundImageUrl="https://images.unsplash.com/photo-1552083375-1447ce886485?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+      <LazyBackground
+        threshold={0.25}
+        className="lazybackground"
+        classNameLoaded="background--loaded"
+        backgroundImageUrl="https://images.unsplash.com/photo-1552083375-1447ce886485?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      >
         <h2 className="lazybackground__title">LazyBackground</h2>
       </LazyBackground>
 
